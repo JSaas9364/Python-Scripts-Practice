@@ -1,9 +1,29 @@
-import numpy as np
-import time
+'''
+def test_slicing(s, group_size):
+    print(f"\nOriginal: {s}")
+    print(f"Group size: {group_size}\n")
 
-start_time = time.perf_counter()
+    for i in range(0, len(s), group_size):
+        print(f"i = {i}")
 
-total = np.sum(np.arange(1_000_000))
+    grouped = [s[i:i+group_size] for i in range(0, len(s), group_size)]
 
-end_time = time.perf_counter()
-print(f"Execution Time: {end_time - start_time} seconds")
+    for idx, chunk in enumerate(grouped):
+        print(f"Group {idx + 1}: '{chunk}'")
+
+    print("\nFinal:", grouped)
+
+s = input("Enter a string: ").strip()[::-1]
+group_size = int(input("Enter group size: ").strip())
+
+test_slicing(s, group_size)
+
+'''
+
+x = input("string: ")[::-1]  # Reverse first
+size = int(input("size: "))  # Convert to integer
+
+formatted = ','.join(x[i:i+size] for i in range(0, len(x), size))[::-1]  # Group & reverse back
+
+print(formatted)
+

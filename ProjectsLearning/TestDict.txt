@@ -1,0 +1,9 @@
+apple: fruit
+carrot: vegetable
+dog: animal
+table: furniture
+python: programming language
+blue: color
+jupiter: planet
+gold: metal
+water: liquid
