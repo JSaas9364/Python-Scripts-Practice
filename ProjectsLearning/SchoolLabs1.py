@@ -1,4 +1,280 @@
 '''
+people = [
+    {
+        "name": "Alice Johnson",
+        "age": 25,
+        "occupation": "Software Engineer",
+        "skills": ["Python", "Java", "SQL"],
+        "location": "New York",
+    },
+    {
+        "name": "Bob Smith",
+        "age": 30,
+        "occupation": "Data Scientist",
+        "skills": ["Python", "R", "Machine Learning"],
+        "location": "San Francisco",
+    },
+    {
+        "name": "Charlie Davis",
+        "age": 22,
+        "occupation": "Cybersecurity Analyst",
+        "skills": ["Networking", "Ethical Hacking", "Linux"],
+        "location": "Austin",
+    },
+    {
+        "name": "David Brown",
+        "age": 28,
+        "occupation": "Web Developer",
+        "skills": ["HTML", "CSS", "JavaScript", "React"],
+        "location": "Seattle",
+    },
+    {
+        "name": "Emily White",
+        "age": 35,
+        "occupation": "IT Support Specialist",
+        "skills": ["Windows", "Troubleshooting", "Networking"],
+        "location": "Chicago",
+    },
+    {
+        "name": "Franklin Green",
+        "age": 40,
+        "occupation": "Network Engineer",
+        "skills": ["Cisco", "Routing", "Firewall"],
+        "location": "Miami",
+    },
+    {
+        "name": "Grace Adams",
+        "age": 27,
+        "occupation": "Cloud Engineer",
+        "skills": ["AWS", "Azure", "Docker"],
+        "location": "Boston",
+    },
+    {
+        "name": "Henry Wilson",
+        "age": 24,
+        "occupation": "DevOps Engineer",
+        "skills": ["CI/CD", "Kubernetes", "Terraform"],
+        "location": "Denver",
+    },
+    {
+        "name": "Ivy Turner",
+        "age": 33,
+        "occupation": "Database Administrator",
+        "skills": ["MySQL", "PostgreSQL", "MongoDB"],
+        "location": "Houston",
+    },
+    {
+        "name": "Jake Martinez",
+        "age": 29,
+        "occupation": "AI Researcher",
+        "skills": ["Deep Learning", "TensorFlow", "NLP"],
+        "location": "Los Angeles",
+    },
+]
+
+vowels = {"a", "e", "i", "o", "u"}  # Set of vowels
+
+# List people in dict
+for person in people:
+    article = 'an' if person['occupation'][0].lower() in vowels else 'a'
+    print(f"{person['name']} is {article} {person['occupation']} in {person['location']}")
+
+# List unique skills    
+unique_skills = set()
+for person in people:
+    unique_skills.update(person['skills'])
+print(f"All unique skills: {unique_skills}")
+
+# Find the oldest person
+oldest = max(people, key = lambda p: p['age'])
+print(f"The oldest person is {oldest['name']} who is {oldest['age']} years old")
+
+# Filter people by occupation
+software_engineers = [p for p in people if p['occupation'] == 'Software Engineer']
+print('Software engineers', software_engineers)
+
+# List of all cities
+cities = {p['location'] for p in people}
+print("Cities:", cities )
+'''
+
+'''
+
+# Vending machine dictionary with item codes and prices
+snacks = {
+    "A1": 1.50, "A2": 2.00, "A3": 2.50,
+    "B1": 1.75, "B2": 2.25, "B3": 3.00,
+    "C1": 1.25, "C2": 2.50, "C3": 3.50
+}
+
+# Get the number of selections
+dinput = int(input("Enter Val: "))
+tcost = 0
+arr = []
+
+while len(arr) < dinput:
+    dinput2 = input("Snack num: ").upper()
+    
+    if dinput2 in snacks:
+        arr.append(dinput2)
+        tcost += snacks[dinput2]
+
+print(tcost)
+'''
+'''import os
+
+# Task 1: Return the current working directory
+def getCurrentDirectory():
+    return os.getcwd()
+
+print(getCurrentDirectory())
+
+# Task 2: Return the directory name from the given file path
+def getDirectoryName(fileName):
+    return os.path.dirname(fileName)
+
+print(getDirectoryName("/var/www/test.html"))
+print(getDirectoryName("/var/www/apple/test.html"))
+
+# Task 3: Return the file name from the given file path
+def getFileName(fileName):
+    return os.path.basename(fileName)
+
+print(getFileName("/var/www/test.html"))
+print(getFileName("/var/www/apple/names.txt"))
+
+# Task 4: Create the specified file
+def createFile(filename):
+    with open(filename, 'w') as f:
+        pass
+
+createFile("test.txt")
+print(os.path.exists("test.txt"))
+
+# Task 5: Print all files in the given directory
+def printFiles(someDirectory):
+    for file in os.listdir(someDirectory):
+        print(file)
+
+printFiles(os.getcwd())
+
+# Task 6: Identify if a path is a file, directory, or neither
+def whatIsIt(somePath):
+    if os.path.isdir(somePath):
+        return "DIRECTORY"
+    elif os.path.isfile(somePath):
+        return "FILE"
+    else:
+        return "NEITHER"
+
+print(whatIsIt(os.getcwd()))
+print(whatIsIt(os.listdir(os.getcwd())[0])) 
+print(whatIsIt("apple.pie.123.txt"))
+
+# Task 7: Read and print the contents of a file
+def printFileContents(filename):
+    with open(filename, 'r') as f:
+        print(f.read())
+
+with open("test.txt", 'w') as f:
+    f.write("Hello")
+
+printFileContents("test.txt")
+
+# Task 8: Append data to a file and print its contents
+def appendAndPrint(filename, newData):
+    with open(filename, 'a') as f:
+        f.write("\n" + newData)
+    printFileContents(filename)
+
+with open("test.txt", 'w') as f:
+    f.write("Hello")
+
+appendAndPrint("test.txt", "World")
+'''
+'''
+#filename = input().strip()
+
+tv_shows  = {}
+
+with open('Overwrite_File.txt', 'r') as file:
+    lines = [line.strip() for line in file.readlines() if line.strip()]
+   
+for i in range(0, len(lines), 2): #step through every 2 lines start, stop, step
+    season_count = (lines[i].strip())
+    show_title = lines[i+1].strip()
+    
+    if season_count not in tv_shows:
+        tv_shows[season_count] = [] 
+    tv_shows[season_count].append(show_title)
+    
+with open('output_keys.txt', 'w') as file:
+    for season in sorted(tv_shows.keys()): # Sort keys by ascending
+        file.write(f"{season}: {'; '.join(tv_shows[season])}\n")
+
+all_shows = [] # Initialize empty string to store all show titles
+
+for shows in tv_shows.values(): # For loop, iterate through each list of shows
+    all_shows.extend(shows)
+    print(all_shows) # Add all TV shows to a single list
+        
+with open('output_titles.txt', 'w') as file:
+    for show in sorted(all_shows):  # Alphabetically sorted TV shows
+        file.write(f"{show}\n")
+'''  
+    
+'''
+# Read input filename
+filename = input().strip()
+
+# Dictionary to store TV shows with season count as keys
+tv_shows = {}
+
+# Read the file and process the data
+with open(filename, "r") as file:
+    lines = file.readlines()
+
+# Process the file contents into dictionary
+for i in range(0, len(lines), 2):  # Step through every two lines (season, show)
+    season_count = int(lines[i].strip())  # Convert season number to integer
+    show_title = lines[i + 1].strip()  # Get the corresponding TV show title
+
+    # Add the show to the dictionary under the correct season count
+    if season_count not in tv_shows:
+        tv_shows[season_count] = []
+    tv_shows[season_count].append(show_title)
+
+# **1️⃣ Write to `output_keys.txt` (Sorted by Number of Seasons)**
+with open("output_keys.txt", "w") as file:
+    for season in sorted(tv_shows.keys()):  # Sort by season count (ascending)
+        file.write(f"{season}: {'; '.join(tv_shows[season])}\n")
+
+# **2️⃣ Write to `output_titles.txt` (Sorted Alphabetically)**
+all_shows = []
+for shows in tv_shows.values():
+    all_shows.extend(shows)  # Add all TV shows to a single list
+
+# Sort the list alphabetically and write to file
+with open("output_titles.txt", "w") as file:
+    for show in sorted(all_shows):  # Alphabetically sorted TV shows
+        file.write(f"{show}\n")
+'''
+
+
+'''
+import numpy as np
+import time
+
+start_time = time.perf_counter()
+
+total = np.sum(np.arange(1_000_000))
+
+end_time = time.perf_counter()
+
+#return ','.join(group)[::-1]
+print(f"Execution Time: {end_time - start_time} seconds, value is {total:,}")
+'''
+'''
 import math
 
 def calcArea(radius):
