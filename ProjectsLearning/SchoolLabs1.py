@@ -1,4 +1,141 @@
 '''
+def get_month_as_int(monthString):
+    if monthString == 'January':
+        month_int = 1
+    elif monthString == 'February':
+        month_int = 2
+    elif monthString == 'March':
+        month_int = 3
+    elif monthString == 'April':
+        month_int = 4
+    elif monthString == 'May':
+        month_int = 5
+    elif monthString == 'June':
+        month_int = 6
+    elif monthString == 'July':
+        month_int = 7
+    elif monthString == 'August':
+        month_int = 8
+    elif monthString == 'September':
+        month_int = 9
+    elif monthString == 'October':
+        month_int = 10
+    elif monthString == 'November':
+        month_int = 11
+    elif monthString == 'December':
+        month_int = 12
+    else:
+        month_int = 0
+
+    return month_int
+
+# Get first user input
+user_input = input()
+
+while user_input != "-1":  # Ensure comparison is with a string
+    parts = user_input.split()
+    
+    if len(parts) == 3 and "," in parts[1]:  # Validate input format
+        month = parts[0]
+        day = parts[1].replace(",", "")  # Remove comma
+        year = parts[2]
+
+        month_int = get_month_as_int(month)  # Convert month to number
+
+        if month_int != 0 and day.isdigit() and year.isdigit():
+            print(f"{month_int}/{day}/{year}")  # Print formatted date
+
+    user_input = input()  # Get next input
+
+'''
+'''
+import csv
+
+filename = 'input1.csv'  # Change to input() if needed
+
+my_dict = {}
+
+with open(filename, 'r') as file:
+    reader = csv.reader(file)
+    rows = [list(map(str.strip, row)) for row in reader] # list map str strip row - strip leading and ending whitespace
+    #print(rows)
+    for row in rows:
+        my_dict = {row[i]: row[i + 1] for i in range(0, len(row), 2)}
+        print(my_dict)
+        
+########################
+
+with open(filename, mode='r', newline='', encoding='utf-8') as file:
+    reader = csv.reader(file)
+    rows = [list(map(str.strip, row)) for row in reader]  # Strip leading/trailing spaces
+
+    for row in rows:
+        row_dict = {row[i]: row[i + 1] for i in range(0, len(row), 2)}  # Convert row into dictionary
+        print(row_dict)  # Output each row as a dictionary
+'''
+'''
+arr = list(map(int, [100, 50, 60, 140, 200, 75, -1]))
+
+def output(array, threshold):
+    for num in array:
+        if num == -1:
+            break
+        if num <= threshold:
+            print(num)
+
+if __name__ == '__main__':
+    threshold = int(arr[0])
+    array = arr
+    output(array, threshold)
+'''
+
+'''words = 'hey Hi Mark hi mark hi hi mark Mark Hey Bob'  # Given words as a string
+w = words.lower().split()
+arr = []
+counts = []
+
+for word in w:
+    if word not in arr:
+        arr.append(word)
+        counts.append(1) # Start counter at 1
+    else:
+        counts[arr.index(word)] += 1
+
+output = list(zip(arr, counts))
+results = ', '.join([f"{word} {count}" for word, count in output])
+print(results)'''
+
+'''
+for word in w:
+    if word not in arr:
+        arr.append(word)
+        counts.append(1)  # Initialize count
+    else:
+        #counts[arr.index(word)] += 1  # Increment count
+        counts[arr.index(word)] += 1
+        print(counts)
+
+#print(list(zip(arr, counts)))  # Output as list of (word, count) pairs
+#for word, count in zip(arr, counts):
+# print(f"The word: '{word}' occurs '{count}' times.")
+output = ", ".join([f"The word: '{word}' occurs '{count}' times" for word, count in zip(arr, counts)])
+print(output)
+
+'''
+'''
+for word in w:
+    for i, (existing_word, count) in enumerate(arr):
+        if existing_word == word:
+            arr[i] = (existing_word, count + 1)  # Update count
+            break
+    else:
+        arr.append((word, 1))  # Append new word with count 1
+
+print(arr)
+
+'''
+
+'''
 people = [
     {
         "name": "Alice Johnson",
@@ -753,4 +890,101 @@ print(getFirstTwo([8,3,5,2,10]))
  
 # expected output: [15, 2]
 print(getFirstTwo([15,2,10,12]))
+'''
+
+'''
+def get_num_of_characters(input_str):
+    # Type your code here
+    count = 0
+    for char in input_str:
+        count += 1
+    return count
+
+def output_no_whitestpace(input_str):
+    modified_str = "".join(input_str.split())
+    return modified_str
+
+if __name__ == '__main__':
+    # Type your code here
+    user_input = input("Enter a sentence or phrase:\n")
+    print(f"\nYou entered: {user_input}")
+    
+    # Step 2 and 3
+    num_chars =  get_num_of_characters(user_input)
+    print(f"\nNumber of characters: {num_chars}")
+    
+    modified_str = output_no_whitestpace(user_input)
+    print(f"String with no whitespace: {modified_str}")
+'''
+'''
+services = { 'Air freshener' : 1 , 'Rain repellent': 2, 'Tire shine' : 2, 'Wax' : 3, 'Vacuum' : 5 }
+base_wash = 10
+total = 0
+
+service_choice1 = input()
+service_choice2 = input()
+
+base_price = 10
+total = base_price
+print("ZyCar Wash")
+print(f"Base car wash -- ${base_price}")
+
+if service_choice1 in services:
+    print(f"{service_choice1} -- ${services[service_choice1]}")
+    total += services[service_choice1]
+
+if service_choice2 in services:
+    print(f"{service_choice2} -- ${services[service_choice2]}")
+    total += services[service_choice2]
+    
+print("----")
+print(f"Total price: ${total}")
+'''
+
+'''
+try:
+    user_num = int(input())
+    div_num = int(input())
+    
+    result = user_num // div_num
+    print(result)
+    
+except ZeroDivisionError:
+    print(f"Zero Division Exception: integer division or modulo by zero")
+    
+except ValueError as e:  
+    print(f"Input Exception: invalid literal for int() with base 10: '{e}'")
+    
+    
+try:
+    user_num = int(input())
+    div_num = int(input())
+
+    result = user_num // div_num
+    print(result)
+
+except ZeroDivisionError:
+    print("Zero Division Exception: integer division or modulo by zero")
+
+except ValueError as e:
+    print(f"Input Exception: {e}")
+'''
+'''
+# Define your method here
+def steps_to_miles(steps):
+    if steps < 0:
+        raise ValueError("Exception: Negative step count entered.")
+    return steps / 2000  # Convert steps to miles
+
+if __name__ == "__main__":
+    # Read input
+    steps = int(input())
+    
+    try:
+        # Convert steps to miles and print the result formatted to 2 decimal places
+        miles = steps_to_miles(steps)
+        print(f"{miles:.2f}")
+    
+    except ValueError as e:
+        print(e)  # Print exception message if steps are negative
 '''
