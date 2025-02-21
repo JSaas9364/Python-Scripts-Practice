@@ -988,3 +988,79 @@ if __name__ == "__main__":
     except ValueError as e:
         print(e)  # Print exception message if steps are negative
 '''
+'''
+synonyms = {}  # Define dictionary
+
+# Get user input
+word = input().strip()
+letter = input().strip()
+
+# Open the corresponding text file
+filename = word + ".txt"
+try:
+    with open(filename, 'r') as file:
+        for line in file:
+            words = line.strip().split()  # Split the line into words
+            if words:  # Ensure the line is not empty
+                first_letter = words[0][0]  # Get first letter of the first word
+                synonyms[first_letter] = words  # Store the words in dictionary
+
+    # Check if the letter exists in the dictionary
+    if letter in synonyms:
+        for synonym in synonyms[letter]:
+            print(synonym)
+    else:
+        print(f"No synonyms for {word} begin with {letter}.")
+
+except FileNotFoundError:
+    print(f"Error: {filename} not found.")
+
+'''
+
+'''
+import csv
+
+filename = input()
+oout_str = ''
+word_dict = {}
+
+with open(filename, 'r', newline='') as file:
+    reader = csv.reader(file, delimiter=',')
+    
+    for row in reader:
+        for word in row:
+            word = word.strip()
+            if word in word_dict:
+                word_dict[word] += 1
+            else:
+                word_dict[word] = 1
+for word in word_dict:              
+    print(f'{word} {word_dict[word]}')
+'''
+'''
+import csv
+
+
+file_name = input()
+movies = {}
+
+with open(filename, r) as file:
+    reader = csv.reader(file)
+    for row in reader:
+        showtime, title, rating = row[0], row[1], row[2]
+        if title not in movies:
+            movies[title] = {'rating': rating, 'showtimes': []}
+        movies[title]['showtimes'].append(showtime)
+        
+# print output formatted
+for title, details in movies.items():
+    formatted_title = f"{title[:44]:<44}"  # Left-justified, limit 44 chars
+    formatted_rating = f"{details['rating']:>5}" # Right justified
+    formatted_showtimes = " ".join(details['showtimes']) # join showtimes
+    print(f"{formatted_title} | {formatted_rating} | {formatted_showtimes}")
+    
+    
+    
+    import csv
+'''
+
