@@ -1,6 +1,6 @@
-ID,Name,Age,Department
-101,Alice Johnson,25,squeeb
-102,Bob Smith,30,squeeb
-103,Charlie Davis,22,squeeb
-104,David Brown,28,squeeb
-105,Emily White,35,squeeb
+ID,Name,Age,Department,Salary
+101,Alice Johnson,25,IT,60000
+102,Bob Smith,30,HR,55000
+103,Charlie Davis,22,Marketing,50000
+104,David Brown,28,Finance,70000
+105,Emily White,35,IT,80000

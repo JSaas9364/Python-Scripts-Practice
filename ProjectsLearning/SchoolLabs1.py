@@ -1063,4 +1063,464 @@ for title, details in movies.items():
     
     import csv
 '''
+'''
+grades = {
+    "Alice": [90, 85, 88],
+    "Bob": [78, 92, 80],
+    "Charlie": [88, 76, 95]
+}
+arr = []
+for student, scores in grades.items():
+    #if (scores[1] > 90): print(scores[1])
+    if student == 'Alice':
+        for score in scores:
+            arr.append(score)
+        print(f"{student}: " + ", ".join([f"Grade # {i + 1}: {score}" for i, score in enumerate(sorted(grades['Alice'], reverse = True))]))
+'''
+'''
+def display_menu():
+    print("\nMENU") 
+    print("a - Add player")
+    print("d - Remove player")
+    print("u - Update player rating")
+    print("r - Output players above a rating")
+    print("o - Output roster")
+    print("q - Quit\n")
 
+def output_roster(team):
+    """Outputs the team roster sorted by jersey number."""
+    print("ROSTER")
+    for jersey in sorted(team.keys()):
+        print(f"Jersey number: {jersey}, Rating: {team[jersey]}")
+
+
+def add_player(team):
+    """Adds a new player to the roster."""
+    jersey = int(input("\nEnter a new player's jersey number:\n"))
+    rating = int(input("Enter the player's rating:\n"))
+    team[jersey] = rating  # Add to dictionary
+
+
+def remove_player(team):
+    """Removes a player from the roster."""
+    jersey = int(input("\nEnter a jersey number:\n"))
+    if jersey in team:
+        del team[jersey]
+    else:
+        print("Player not found!")  # Optional message
+
+
+def update_player_rating(team):
+    """Updates a player's rating."""
+    jersey = int(input("\nEnter a jersey number:\n"))
+    if jersey in team:
+        new_rating = int(input("Enter a new rating for player:\n"))
+        team[jersey] = new_rating  # Update dictionary value
+    else:
+        print("Player not found!")  # Optional message
+
+
+def output_above_rating(team):
+    """Displays players with a rating above a given value."""
+    rating = int(input("\nEnter a rating:\n"))
+    print(f"\nABOVE {rating}")
+    for jersey in sorted(team.keys()):
+        if team[jersey] > rating:
+            print(f"Jersey number: {jersey}, Rating: {team[jersey]}")
+
+
+# ✅ Step 1: Initialize Dictionary and Get Input
+team_roster = {}
+
+for i in range(1, 6):  # Loop for 5 players
+    jersey = int(input(f"Enter player {i}'s jersey number:\n"))
+    rating = int(input(f"Enter player {i}'s rating:\n\n"))
+    team_roster[jersey] = rating  # Store in dictionary
+
+# ✅ Step 2: Output Initial Roster
+output_roster(team_roster)
+
+# ✅ Step 3: Display Menu and Process User Commands
+while True:
+    display_menu()  # ✅ Ensure this prints correctly
+    choice = input("Choose an option:\n").strip().lower()
+
+    if choice == 'o':
+        output_roster(team_roster)
+    elif choice == 'a':
+        add_player(team_roster)
+    elif choice == 'd':
+        remove_player(team_roster)
+    elif choice == 'u':
+        update_player_rating(team_roster)
+    elif choice == 'r':
+        output_above_rating(team_roster)
+    elif choice == 'q':
+        break  # Quit program
+    else:
+        print("Invalid option! Please try again.")
+'''
+'''
+# Step 0: Input values
+
+nums = [int(n) for n in input().split()]
+
+
+# Step 1: Find minimum and maximum values
+# Type your code here.
+min_val = min(nums)
+max_val = max(nums)
+
+print(f"Minimum: {min_val}\nMaximum: {max_val}")
+
+# Step 2: Calculate mean
+# Type your code here.
+mean = sum(nums)/len(nums)
+print(f"Mean: {mean:.1f}")
+
+# Step 3: Check if palindrome
+# Type your code here.
+if nums == nums[::-1]:
+    print("Palindrome: True")
+else:
+    print("Palindrome: False")
+    
+
+# Sort list
+nums.sort()
+
+# Step 4: Find and output median
+# Type your code here.
+n = len(nums)
+if n % 2 == 1:
+    median = nums[n //2] # Middle element for odd length
+else:
+    median = (nums[n // 2 - 1] + nums[n // 2]) / 2 # Average of middle two for even length
+
+print(f"Median: {median:.1f}")
+
+# Step 5: Find and output mode
+# Type your code here.
+mode = nums[0]         # Stores the mode (most frequent number)
+max_count = 1          # Tracks the highest frequency seen so far
+current_num = nums[0]  # Tracks the current number being counted
+current_count = 1      # Tracks how many times current_num appears consecutively
+
+mode = max(nums, key = nums.count)
+print(f"Mode: {mode}")
+
+
+
+
+# Step 0: Input values
+nums = [int(n) for n in input().split()]
+
+# Step 1: Find minimum and maximum values
+min_value = min(nums)
+max_value = max(nums)
+print(f"Minimum: {min_value}")
+print(f"Maximum: {max_value}")
+
+# Step 2: Calculate mean
+mean = sum(nums) / len(nums)
+print(f"Mean: {mean:.1f}")
+
+# Step 3: Check if palindrome
+if nums == nums[::-1]:
+    print("Palindrome: True")
+else:
+    print("Palindrome: False")
+
+# Step 4: Find and output median
+nums.sort()  # Sorting the list
+n = len(nums)
+if n % 2 == 1:
+    median = nums[n // 2]  # Middle element for odd length
+else:
+    median = (nums[n // 2 - 1] + nums[n // 2]) / 2  # Average of middle two for even length
+
+print(f"Median: {median:.1f}")
+
+# Step 5: Find and output mode
+mode = nums[0]
+max_count = 1
+current_num = nums[0]
+current_count = 1
+
+for i in range(1, len(nums)):
+    if nums[i] == nums[i - 1]:
+        current_count += 1
+    else:
+        current_count = 1
+        current_num = nums[i]
+
+    if current_count > max_count:
+        max_count = current_count
+        mode = nums[i]
+
+print(f"Mode: {mode}")
+
+'''
+'''
+# Read input as a list of integers
+user_values = list(map(int, input().split()))
+
+# Always define user_vals
+if len(user_values) > 1:
+    user_vals = user_values[-1:] + user_values[1:-1] + user_values[:1]
+else:
+    user_vals = user_values  # Keep the same list if only one element
+
+# Print output with spaces, ensuring a space after the last number
+print(" ".join(map(str, user_vals)) + " ")
+
+'''
+'''
+# num_count [] counts the number of occurrences for values 1-20 in the corresponding array index.
+# Items in index 0 are ignored
+num_count = [0] * 21  # Initialize a list of 21 0's for tallies
+
+# Read input as space-separated integers
+user_input = list(map(int, input().split()))
+
+# Loop through the numbers and update the count, stopping at -1
+for num in user_input:
+    if num == -1:
+        break  # Stop processing at -1
+    if 1 <= num <= 20:  # Only count valid numbers in range 1-20
+        num_count[num] += 1  # Increment count at index 'num'
+
+# Find the mode (the number with the highest count)
+mode = num_count.index(max(num_count))
+
+# Print the mode
+print(mode)
+
+
+user_input = list(map(int, input().split()))
+
+for num in user_input:
+    if num == -1:
+        break
+    if 1 <= num <= 20:
+        num_count[num] += 1
+        
+mode = num_count.index(max(num_count))
+
+max_count = max(num_count)
+modes = [i for i, count in enumerate(num_count) if count == max_count]
+'''
+'''def read_customer_data(filename):
+    """Read and return data from filename as lists (names, states, debts)"""
+    names, states, debts = [], [], []
+    
+    with open(filename) as f:
+        for row in f:
+            row = row.strip().split(',')
+            names.append(row[0])
+            states.append(row[1])
+            debts.append(float(row[2]))
+    
+    return names, states, debts
+
+# Main portion of the program
+if __name__ == '__main__':
+    # Read user input
+    num_customers = int(input())
+    debt_limit = int(input())
+    search_phrase = input().strip()
+    state_abbr = input().strip()
+    
+    # Read customer data from file
+    names, states, debts = read_customer_data("CustomerData.csv")
+    
+    # Process the first `num_customers`
+    selected_names = names[:num_customers]
+    selected_debts = debts[:num_customers]
+    selected_states = states[:num_customers]
+    
+    # Find the customer with the highest debt
+    max_debt = max(selected_debts)
+    highest_debt_name = selected_names[selected_debts.index(max_debt)]
+    
+    # Count customers whose names start with `search_phrase`
+    name_count = sum(1 for name in selected_names if name.startswith(search_phrase))
+    
+    # Count customers with debt above `debt_limit` and those with no debt
+    debt_above_limit = sum(1 for debt in selected_debts if debt > debt_limit)
+    debt_free_count = sum(1 for debt in selected_debts if debt == 0)
+    
+    # Print the U.S. report
+    print("U.S. Report")
+    print(f"Customers: {num_customers}")
+    print(f"Highest debt: {highest_debt_name}")
+    print(f'Customer names that start with "{search_phrase}": {name_count}')
+    print(f"Customers with debt over ${debt_limit}: {debt_above_limit}")
+    print(f"Customers debt free: {debt_free_count}")
+    
+    # Process state-specific report
+    state_customers = [i for i, state in enumerate(selected_states) if state == state_abbr]
+    if state_customers:
+        state_debts = [selected_debts[i] for i in state_customers]
+        state_names = [selected_names[i] for i in state_customers]
+        
+        max_state_debt = max(state_debts)
+        state_highest_debt_name = state_names[state_debts.index(max_state_debt)]
+        state_name_count = sum(1 for name in state_names if name.startswith(search_phrase))
+        state_debt_above_limit = sum(1 for debt in state_debts if debt > debt_limit)
+        state_debt_free = sum(1 for debt in state_debts if debt == 0)
+        
+        print(f"\n{state_abbr} Report")
+        print(f"Customers: {len(state_customers)}")
+        print(f"Highest debt: {state_highest_debt_name}")
+        print(f'Customer names that start with "{search_phrase}": {state_name_count}')
+        print(f"Customers with debt over ${debt_limit}: {state_debt_above_limit}")
+        print(f"Customers debt free: {state_debt_free}")
+
+
+
+# Step 0: Input values
+
+nums = [int(n) for n in input().split()]
+
+
+# Step 1: Find minimum and maximum values
+# Type your code here.
+min_val = min(nums)
+max_val = max(nums)
+
+print(f"Minimum: {min_val}\nMaximum: {max_val}")
+
+# Step 2: Calculate mean
+# Type your code here.
+mean = sum(nums)/len(nums)
+print(f"Mean: {mean:.1f}")
+
+# Step 3: Check if palindrome
+# Type your code here.
+if nums == nums[::-1]:
+    print("Palindrome: True")
+else:
+    print("Palindrome: False")
+    
+
+# Sort list
+nums.sort()
+
+# Step 4: Find and output median
+# Type your code here.
+n = len(nums)
+if n % 2 == 1:
+    median = nums[n //2] # Middle element for odd length
+else:
+    median = (nums[n // 2 - 1] + nums[n // 2]) / 2 # Average of middle two for even length
+
+print(f"Median: {median:.1f}")
+
+# Step 5: Find and output mode
+# Type your code here.
+mode = nums[0]         # Stores the mode (most frequent number)
+max_count = 1          # Tracks the highest frequency seen so far
+current_num = nums[0]  # Tracks the current number being counted
+current_count = 1      # Tracks how many times current_num appears consecutively
+
+mode = max(nums, key = nums.count)
+print(f"Mode: {mode}")
+'''
+'''#filename =input().strip()
+filename = 'WordTextFile1.txt'
+
+with open(filename, "r") as file:
+    words = file.read().splitlines()
+
+sentence = " ".join(words)
+
+with open(filename, 'a') as file:
+    file.write(f"\n{sentence}")
+    
+with open(filename, 'r') as file:
+    print(file.read())'''
+    
+'''
+import csv
+
+filename = "input1.csv"
+
+with open(filename, 'r') as file:
+    reader = csv.reader(file)
+    for row in reader:
+        row = [space.strip() for space in row]
+        row_dict = dict(zip(row[::2], row[1::2]))
+        print(row_dict)
+
+
+with open(filename, mode='r', newline='', encoding='utf-8') as file:
+    reader = csv.reader(file)
+    rows = [list(map(str.strip, row)) for row in reader]  # Strip leading/trailing spaces
+
+    for row in rows:
+        row_dict = {row[i]: row[i + 1] for i in range(0, len(row), 2)}  # Convert row into dictionary
+        print(row_dict)  # Output each row as a dictionary
+
+'''
+'''
+purchase = {"bananas": 1.85, "steak": 19.99, "cookies": 4.52, "celery": 2.81, "milk": 4.34}
+
+item_purchased = input().strip()
+amount = int(input())
+
+if item_purchased in purchase:
+    if 10 <= amount <= 20:
+        total_purchase_cost = (purchase[item_purchased] * amount) * .95
+    elif amount >= 21:    
+        total_purchase_cost = (purchase[item_purchased] * amount) * .90
+    else:
+        total_purchase_cost = purchase[item_purchased] * amount
+   
+print(f"{item_purchased} ${total_purchase_cost:.2f}")
+'''
+
+'''
+import csv
+
+
+filename = "WordTextFile1.txt"
+arr = []
+
+with open(filename,  'r') as file:
+    reader = csv.reader(file)
+    for lines in reader:
+        cleaned = list(map(str.strip, lines))
+        print("".join(cleaned))
+        arr.extend(lines)
+sentence = " ".join(arr)
+print(sentence)
+  
+with open(filename, 'a') as file:
+    file.write(sentence)
+'''
+'''
+import csv 
+
+filename = "input1.csv"
+
+with open(filename, 'r') as file:
+    reader = csv.reader(file)
+    rows = [list(map(str.strip, row)) for row in reader]
+
+    # Print each row separately
+    for key in rows[0]:
+        #print(key)
+        dict_row = {rows[0][index]: rows[0][index + 1] for index in range(0, len(rows[0]), 2)}
+    print(dict_row)
+    for key in rows[1]:
+        #print(key)
+        dict_row2 = {rows[1][index]: rows[1][index + 1] for index in range(0, len(rows[1]), 2)}
+    print(dict_row2)
+
+    # Print each row, overlapping row_dict during printout  
+    for item in rows:
+        row_dict = {item[key]: item[key + 1] for key in range(0, len(item), 2)}
+        print(row_dict)
+        
+'''
