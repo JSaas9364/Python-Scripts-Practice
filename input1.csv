@@ -1,2 +1,3 @@
- a, 100, b, 200, c, 300
-bananas, 1.85, steak, 19.99, cookies, 4.52
+[' a', ' 100', ' b', ' 200', ' c', ' 300']
+['bananas', ' 1.85', ' steak', ' 19.99', ' cookies', ' 4.52']
+['apples', ' 2.99', ' chicken', ' 9.99', ' milk', ' 3.49']

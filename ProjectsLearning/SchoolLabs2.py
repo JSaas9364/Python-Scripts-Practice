@@ -1,4 +1,4 @@
-import csv
+'''import csv
 
 grades = []
 total_mid1 = total_mid2 = total_final = 0
@@ -53,3 +53,55 @@ with open('report.txt', 'w') as file:
 
     # Append the exam averages at the end with correct formatting
     file.write(f"\nAverages: midterm1 {midterm1_avg:.2f}, midterm2 {midterm2_avg:.2f}, final {final_avg:.2f}\n")
+'''
+'''import csv
+
+filename = 'input1.csv'
+
+row1 = ['100', '200', '300']
+row2 = ['400', '500', '600']
+
+
+rowkeep = []
+f = open(filename, 'r', newline = '')
+reader = csv.reader(f)
+for i, row in enumerate(reader):
+    if i <= 2:
+        #print(*row, "keep")
+        rowkeep.append(row)
+    else:
+        #print(*row, "skip")
+        continue
+f.close()
+
+f = open(filename, 'w', newline = '')
+writer = csv.writer(f)
+writer.writerows(rowkeep)
+f.close()
+
+
+f = open(filename, 'r', newline = '')
+reader = csv.reader(f)
+for row in reader:
+    print(*row)
+'''
+'''with open(filename, 'a', newline = '') as f:
+    writer = csv.writer(f)
+#    writer.writerow(row1)
+#    writer.writerow(row2)
+    writer.writerow([row1, row2])
+    writer.writerows([row1, row2])
+with open(filename, 'r', newline = '') as f:
+    reader = csv.reader(f)
+    for row in reader:
+        print(row)
+'''
+
+'''
+[' a', ' 100', ' b', ' 200', ' c', ' 300']
+['bananas', ' 1.85', ' steak', ' 19.99', ' cookies', ' 4.52']
+['apples', ' 2.99', ' chicken', ' 9.99', ' milk', ' 3.49']
+['oranges', ' 3.49', ' fish', ' 12.99', ' bread', ' 2.99']
+['pears', ' 4.99', ' pork', ' 14.99', ' eggs', ' 2.49']
+['grapes', ' 5.99', ' beef', ' 17.99', ' cheese', ' 6.49']
+'''
