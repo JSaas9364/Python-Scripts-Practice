@@ -1,37 +1,41 @@
-numarray = [2, 3, 20, 11, 7, 19, 7, 8, 14, 19]
+import csv
 
+filename = 'input1.csv'
+data_dict = {}
 
+with open(filename, 'r') as f:
+    reader = csv.reader(f)
+    for row in reader:
+        if len(row) > 0: #ignore empty lines
+            # Clean row
+            row = row[0].strip().strip('{').strip('}').split(':')
+            #print(row)
+            if len(row) == 2: #proper k, v format
+                key = row[0].strip("'").strip('"') # remove quotes
+                value = row[1].strip()
+                try:
+                    #convert numbers to float/int
+                    value = float(value) if "." in value else int(value)
+                except ValueError:
+                    pass # keep as string if conversion fails
+                data_dict[key] = value
+print(data_dict)   
 
-def findpair(numarray, target):
-    for i in range(len(numarray)):
-        for j in range(i + 1, len(numarray)):
-            if numarray[i] + numarray[j] == target:
-                return (numarray[i], numarray[j])
-    return None
+new_data = [
+    ["eggs", "cheese", "butter"],  # List
+    {"yogurt": 1.99, "orange juice": 3.49, "cereal": 4.99},  # Dict
+    "End of new data block"  # String
+]
+# Independent variables for each data type
+list_data = ["eggs", "cheese", "butter"]  # Row 1 (List)
+dict_data = {"yogurt": 1.99, "orange juice": 3.49, "cereal": 4.99}  # Row 2 (Dict)
+string_data = "End of new data block"  # Row 3 (String)  
 
-target = 5
-result = findpair(numarray, target)
-if result:
-    print(f"Pair found: {result}")
-else:
-    print("No pair found")
-    
-    
-    
- numarray = [2, 3, 20, 11, 7, 19, 7, 8, 14, 19]
-
-def findpair(numarray, target):
-    for i in range(len(numarray)):
-        for j in range(i + 1, len(numarray)):  # Ensure j starts after i
-            if numarray[i] + numarray[j] == target:
-                return (i, j)  # Correctly returning indices
-
-    return None  # If no pair is found
-
-target = 5
-result = findpair(numarray, target)
-
-if result:
-    print(f"Pair found at indices: {result}")
-else:
-    print("No pair found")
+with open(filename, 'a') as f:
+    writer = csv.writer(f)
+#writerow for list data
+    writer.writerow(list_data)
+#writerows for dict data
+    writer.writerows([dict_data.items()])
+#writerow for string data
+    writer.writerow([string_data])

@@ -1,3 +1,14 @@
-[' a', ' 100', ' b', ' 200', ' c', ' 300']
-['bananas', ' 1.85', ' steak', ' 19.99', ' cookies', ' 4.52']
-['apples', ' 2.99', ' chicken', ' 9.99', ' milk', ' 3.49']
+{
+    'a': 100,
+    'b': 200,
+    'c': 300,
+    'bananas': 1.85,
+    'steak': 19.99,
+    'cookies': 4.52,
+    'apples': 2.99,
+    'chicken': 9.99,
+    'milk': 3.49
+}
+eggs,cheese,butter
+"('yogurt', 1.99)","('orange juice', 3.49)","('cereal', 4.99)"
+End of new data block
