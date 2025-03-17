@@ -8,7 +8,7 @@ This repository contains various **mini Python projects**, **practice scripts**,
 - **PythonRepo/**
   - **PythonPractice/** – Mini projects and coding exercises
   - **WIP_Projects/** – Work-in-progress scripts
-  - **Sample Files and Outputs for Testing...
+  - **Sample Files and Outputs for Testing.../**
 
 ## 📌 Projects and Learning Goals  
 This repo includes:
