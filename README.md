@@ -6,18 +6,9 @@ This repository contains various **mini Python projects**, **practice scripts**,
 
 ## 📂 Repository Structure
 - **PythonRepo/**
-  - **ProjectsLearning/** – Mini projects and coding exercises
-  - **Tools/** – Useful scripts and automation tools
-  - **Overwrite_File.txt** – Sample text file for file operations
-  - **StudentInfo.tsv** – Sample tab-separated values file
-  - **WordTextFile1.txt** – Text file used for word processing
-  - **input1.csv** – Example CSV file for data processing
-  - **movies.csv** – Sample dataset for CSV operations
-  - **output_keys.txt** – Processed output data
-  - **output_titles.txt** – Sample text output file
-  - **report.txt** – Sample report file
-  - **test_file.csv** – Another test CSV file
-
+  - **PythonPractice/** – Mini projects and coding exercises
+  - **WIP_Projects/** – Work-in-progress scripts
+  - **Sample Files and Outputs for Testing...
 
 ## 📌 Projects and Learning Goals  
 This repo includes:
