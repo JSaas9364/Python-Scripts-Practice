@@ -6,7 +6,8 @@ This repository contains various **mini Python projects**, **practice scripts**,
 
 ## 📂 Repository Structure
 - **PythonRepo/**
-  - **PythonPractice/** – Mini projects and coding exercises
+  - **Exercise_Files_Ref** - Reference Docs for Practice
+  - **Python_Practice/** – Mini projects and coding exercises
   - **WIP_Projects/** – Work-in-progress scripts
   - **Sample Files and Outputs for Testing**
 
