@@ -1,4 +1,14 @@
 '''
+d = {}
+
+def add(x, y):
+    d.update({x: y}) # add keyvalue pair
+    return d
+
+print(add(input("Enter num1: "), input("Enter num2: ")))  # Get input and call function in one line
+'''
+
+'''
 def get_month_as_int(monthString):
     if monthString == 'January':
         month_int = 1
