@@ -4,4 +4,4 @@ def generator(start,stop):
         print(f'start={start}')
         start+=1
 for counter in generator(3,4):
-    print(f'counter={counter}')
+    print(f'counter={counter}')   
